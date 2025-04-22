@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security Testing Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+      :root {
+        --primary: #2563eb;
+        --secondary: #4f46e5;
+        --accent: #06b6d4;
+      }
+
+      .light {
+        --background: #f8fafc;
+        --card: #ffffff;
+        --text: #1e293b;
+        --sidebar: #e2e8f0;
+        --hover: #f8fafc;
+      }
+
+      .dark {
+        --background: #0a0a1f;
+        --card: #12122e;
+        --text: #e2e8f0;
+        --sidebar: #0d0d24;
+        --hover: #1a1a3f;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, sans-serif;
+        transition: background-color 0.15s, color 0.15s;
+      }
+
+      body {
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        overflow-x: hidden;
+        background: var(--background);
+      }
+
+      /* Enhanced Grid Background Styles */
+.grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -99999;
+  overflow: hidden;
+}
+
+/* Light mode animations */
+.light .grid-background::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: 
+    linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(37, 99, 235, 0.03) 25%,
+      rgba(6, 182, 212, 0.04) 50%,
+      rgba(37, 99, 235, 0.03) 75%,
+      transparent 100%
+    );
+  animation: lightModeBg 20s linear infinite;
+  transform-origin: center;
+}
+
+.light .grid-background::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, transparent 97%, rgba(37, 99, 235, 0.05) 98%),
+    linear-gradient(0deg, transparent 97%, rgba(37, 99, 235, 0.05) 98%);
+  background-size: 40px 40px;
+  animation: lightGridPulse 4s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+@keyframes lightModeBg {
+  0% {
+    transform: rotate(0deg) scale(1);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes lightGridPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
+}
+
+/* Dark mode animations */
+.dark .grid-background::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: 
+    radial-gradient(
+      circle at center,
+      transparent 0%,
+      rgba(37, 99, 235, 0.1) 20%,
+      rgba(6, 182, 212, 0.1) 40%,
+      rgba(79, 70, 229, 0.1) 60%,
+      transparent 80%
+    );
+  animation: darkModeBg 25s linear infinite;
+  filter: blur(20px);
+}
+
+.dark .grid-background::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent 0%,
+      transparent 98%,
+      rgba(79, 70, 229, 0.2) 98%,
+      rgba(79, 70, 229, 0.2) 100%
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0%,
+      transparent 98%,
+      rgba(6, 182, 212, 0.2) 98%,
+      rgba(6, 182, 212, 0.2) 100%
+    );
+  background-size: 60px 60px;
+  animation: darkGridPulse 6s ease-in-out infinite;
+  filter: blur(1px);
+}
+
+/* Add floating particles effect for dark mode */
+.dark .grid-background .particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(37, 99, 235, 0.3) 0%,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(6, 182, 212, 0.3) 0%,
+      transparent 2px
+    );
+  background-size: 80px 80px, 60px 60px;
+  background-position: 0 0, 30px 30px;
+  animation: particlesFloat 15s linear infinite;
+}
+
+@keyframes darkModeBg {
+  0% {
+    transform: translate(-10%, -10%) rotate(0deg);
+    filter: hue-rotate(0deg) blur(20px);
+  }
+  50% {
+    transform: translate(10%, 10%) rotate(180deg);
+    filter: hue-rotate(180deg) blur(25px);
+  }
+  100% {
+    transform: translate(-10%, -10%) rotate(360deg);
+    filter: hue-rotate(360deg) blur(20px);
+  }
+}
+
+@keyframes darkGridPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05) rotate(1deg);
+  }
+}
+
+@keyframes particlesFloat {
+  0% {
+    background-position: 0 0, 30px 30px;
+  }
+  100% {
+    background-position: 80px 80px, 110px 110px;
+  }
+}
+      /* Sidebar Styles */
+      .sidebar {
+        width: 280px;
+        background: var(--sidebar);
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        height: 100vh;
+        z-index: 1;
+        border-right: 1px solid var(--hover);
+        backdrop-filter: blur(10px);
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary);
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .logo i {
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+      }
+
+      .nav-item {
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        position: relative;
+        overflow: hidden;
+        z-index: 1000000;
+      }
+
+      .nav-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--primary);
+        opacity: 0;
+        transition: opacity 0.3s;
+        
+      }
+
+      .nav-item:hover::before {
+        opacity: 0.1;
+      }
+
+      .nav-item.active::before {
+        opacity: 0.2;
+      }
+
+      .nav-item i {
+        width: 20px;
+        font-size: 1.2rem;
+      }
+
+      /* Main Content Styles */
+      .main-content {
+        margin-left: 280px;
+        flex: 1;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        
+      }
+
+      .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: var(--card);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--hover);
+        z-index: 1000;
+      }
+
+      .theme-switch {
+        background: var(--primary);
+        border: none;
+        color: white;
+        padding: 0.75rem;
+        border-radius: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        transition: transform 0.2s;
+        width: 40px;
+        height: 40px;
+      }
+
+      .welcome-message {
+        font-size: 1.5rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .welcome-message span {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .profile-menu {
+        position: relative;
+        z-index: 1100 !important;
+      }
+
+      .profile-button {
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 0.5rem;
+        padding-right: 1rem;
+        border-radius: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        cursor: pointer;
+        color: var(--text);
+        z-index: 1101;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 4px var(--shadow);
+
+      }
+
+      .profile-button:hover {
+        border-color: var(--primary);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px var(--shadow);
+      }
+
+      .profile-pic {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        border: 2px solid var(--card);
+        position: relative;
+      }
+
+      .profile-pic.online::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        right: -2px;
+        width: 12px;
+        height: 12px;
+        background: #22c55e;
+        border-radius: 50%;
+        border: 2px solid var(--card);
+      }
+
+      .profile-info {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+
+      .profile-name {
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+
+      .profile-role {
+        font-size: 0.75rem;
+        opacity: 0.7;
+      }
+
+      .chevron {
+        transition: transform 0.2s ease;
+      }
+
+      .profile-button.active .chevron {
+        transform: rotate(180deg);
+      }
+
+      .profile-dropdown {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        width: 240px;
+        padding: 0.75rem;
+        box-shadow: 0 10px 15px -3px var(--shadow);
+        opacity: 0;
+        z-index: 9999 !important;
+        transform: translateY(-10px);
+        transition: all 0.2s ease;
+        backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 
+    0 10px 25px -5px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+      
+      }
+
+      .profile-dropdown.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        z-index: 1001 !important;
+      }
+
+      .dropdown-header {
+        padding: 1rem;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 0.5rem;
+        z-index: 1001 !important;
+      }
+
+      .dropdown-item {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  position: relative;
+  z-index: 99999 !important; /* Ensure dropdown items are clickable */
+}
+
+.dropdown-item:hover {
+  background: var(--hover);
+}
+
+      .dropdown-item i {
+        width: 1.25rem;
+        text-align: center;
+        color: var(--primary);
+      }
+
+      .dropdown-divider {
+        height: 1px;
+        background: var(--border);
+        margin: 0.5rem 0;
+      }
+
+      .theme-badge {
+        background: var(--hover);
+        padding: 0.25rem 0.5rem;
+        border-radius: 1rem;
+        font-size: 0.75rem;
+        margin-left: auto;
+      }
+
+      .logout-item {
+        color: #ef4444;
+      }
+
+      .logout-item i {
+        color: #ef4444;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border: 1px solid var(--hover);
+        backdrop-filter: blur(10px);
+        transform-origin: center;
+        opacity: 0;
+        z-index: 1;
+        transform: translateY(20px);
+      }
+
+      .input-group {
+        display: flex;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      input {
+        flex: 1;
+        padding: 1rem 1.5rem;
+        border-radius: 1rem;
+        border: 1px solid var(--hover);
+        background: var(--background);
+        color: var(--text);
+        font-size: 1rem;
+      }
+
+      button {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 500;
+        font-size: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.2);
+      }
+
+      .tool-group {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin: 1.5rem 0;
+      }
+
+      .tool-badge {
+        background: var(--hover);
+        color: var(--text);
+        padding: 0.5rem 1rem;
+        border-radius: 0.75rem;
+        font-size: 0.875rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .tool-badge:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+      }
+
+      .progress {
+        height: 8px;
+        background: var(--background);
+        border-radius: 4px;
+        margin: 1.5rem 0;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        width: 0%;
+        transition: width 0.3s ease;
+        position: relative;
+      }
+
+      .progress-bar::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        animation: shimmer 2s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      .results {
+        background: var(--background);
+        padding: 1.5rem;
+        border-radius: 1rem;
+        margin-top: 1.5rem;
+        max-height: 300px;
+        overflow-y: auto;
+        border: 1px solid var(--hover);
+        font-family: "Monaco", monospace;
+        line-height: 1.6;
+      }
+
+      .section-enter {
+        animation: sectionEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes sectionEnter {
+        0% {
+          opacity: 0;
+          transform: translateX(40px) scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0) scale(1);
+        }
+      }
+
+      .status {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1.5rem;
+        background: var(--hover);
+        border-radius: 1rem;
+        font-weight: 500;
+      }
+
+      .status.scanning {
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        color: white;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--background);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent);
+      }
+
+      .tool-selector {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .tool-option {
+        background: var(--hover);
+        border: 1px solid var(--primary);
+        border-radius: 0.75rem;
+        padding: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .tool-option:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+        background: rgba(37, 99, 235, 0.1);
+      }
+
+      .tool-option.selected {
+        background: rgba(37, 99, 235, 0.2);
+        border-color: var(--accent);
+      }
+
+      .tool-option i {
+        color: var(--primary);
+      }
+
+      .tool-details {
+        flex: 1;
+      }
+
+      .tool-name {
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+      }
+
+      .tool-description {
+        font-size: 0.875rem;
+        opacity: 0.8;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="grid-background">
+      <div class="particles"></div>
+  </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <i class="fas fa-shield-alt"></i>
+        SecTest Pro
+      </div>
+      <div class="nav-item active" onclick="showSection('asset-discovery')">
+        <i class="fas fa-search"></i>
+        Asset Discovery
+      </div>
+      <div class="nav-item" onclick="showSection('info-gathering')">
+        <i class="fas fa-info-circle"></i>
+        Information Gathering
+      </div>
+      <div class="nav-item" onclick="showSection('content-discovery')">
+        <i class="fas fa-folder-open"></i>
+        Content Discovery
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="top-bar">
+        <div class="welcome-message">
+          Hello, <span id="username">John Doe</span>! 👋
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center">
+          <button
+            class="theme-switch"
+            onclick="toggleTheme()"
+            title="Toggle theme"
+          >
+            <i class="fas fa-sun"></i>
+          </button>
+          <div class="profile-menu">
+            <button class="profile-button" onclick="toggleProfile()">
+              <div class="profile-pic online">JD</div>
+              <div class="profile-info">
+                <span class="profile-name">John Doe</span>
+                <span class="profile-role">Security Analyst</span>
+              </div>
+              <i class="fas fa-chevron-down chevron"></i>
+            </button>
+
+            <div class="profile-dropdown" id="profileDropdown">
+              <div class="dropdown-header">
+                <div
+                  class="profile-name"
+                  style="font-size: 1.1rem; margin-bottom: 0.25rem"
+                >
+                  John Doe
+                </div>
+                <div class="profile-role" style="opacity: 0.7">
+                  john.doe@company.com
+                </div>
+              </div>
+
+              <div class="dropdown-item">
+                <i class="fas fa-user"></i>
+                View Profile
+              </div>
+
+              <div class="dropdown-item">
+                <i class="fas fa-cog"></i>
+                Settings
+                <span class="theme-badge">Pro</span>
+              </div>
+
+              <div class="dropdown-item">
+                <i class="fas fa-history"></i>
+                Scan History
+              </div>
+
+              <div class="dropdown-item">
+                <i class="fas fa-bell"></i>
+                Notifications
+                <span class="theme-badge">3</span>
+              </div>
+
+              <div class="dropdown-item">
+                <i class="fas fa-question-circle"></i>
+                Help & Support
+              </div>
+
+              <div class="dropdown-divider"></div>
+
+              <div class="dropdown-item logout-item">
+                <i class="fas fa-sign-out-alt"></i>
+                Sign Out
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="section-content"></div>
+    </div>
+
+    <script>
+      // Tool options configuration
+      const toolOptions = {
+        "asset-discovery": [
+          {
+            id: "subfinder",
+            name: "Subfinder",
+            description: "Fast subdomain discovery tool",
+            icon: "fa-search",
+          },
+          {
+            id: "assetfinder",
+            name: "Assetfinder",
+            description: "Find domains and subdomains",
+            icon: "fa-search-plus",
+          },
+          {
+            id: "gobuster",
+            name: "Gobuster",
+            description: "Directory/File, DNS and VHost busting tool",
+            icon: "fa-folder-open",
+          },
+          {
+            id: "nmap",
+            name: "Nmap",
+            description: "Network security scanner",
+            icon: "fa-network-wired",
+          },
+        ],
+        "info-gathering": [
+          {
+            id: "gf-patterns",
+            name: "GF Patterns",
+            description: "Pattern-based scanner",
+            icon: "fa-search",
+          },
+          {
+            id: "kxss",
+            name: "KXSS",
+            description: "XSS scanner",
+            icon: "fa-bug",
+          },
+          {
+            id: "zile",
+            name: "Zile.py",
+            description: "JavaScript analysis tool",
+            icon: "fa-code",
+          },
+          {
+            id: "aquatone",
+            name: "Aquatone",
+            description: "Visual inspection tool",
+            icon: "fa-eye",
+          },
+        ],
+        "content-discovery": [
+          {
+            id: "ffuf",
+            name: "FFUF",
+            description: "Fast web fuzzer",
+            icon: "fa-bolt",
+          },
+          {
+            id: "feroxbuster",
+            name: "Feroxbuster",
+            description: "Recursive content discovery",
+            icon: "fa-folder-tree",
+          },
+        ],
+      };
+
+      const sections = {
+        "asset-discovery": `
+        <div class="card">
+            <h2><i class="fas fa-search"></i> Asset Discovery</h2>
+            <p>Select tools to use for asset discovery:</p>
+            <div class="tool-selector" id="asset-tools">
+                ${toolOptions["asset-discovery"]
+                  .map(
+                    (tool) => `
+                    <div class="tool-option" data-tool-id="${tool.id}">
+                        <i class="fas ${tool.icon}"></i>
+                        <div class="tool-details">
+                            <div class="tool-name">${tool.name}</div>
+                            <div class="tool-description">${tool.description}</div>
+                        </div>
+                    </div>
+                `
+                  )
+                  .join("")}
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Enter target URL" id="target-url">
+                <button onclick="startScan('asset-discovery')">
+                    <i class="fas fa-play"></i> Start Discovery
+                </button>
+            </div>
+            <div class="status-container">
+                <div class="progress">
+                    <div class="progress-bar" id="asset-discovery-progress"></div>
+                </div>
+                <div class="results" id="asset-discovery-results">Select tools and enter target URL to start...</div>
+            </div>
+        </div>
+    `,
+        "info-gathering": `
+        <div class="card">
+            <h2><i class="fas fa-info-circle"></i> Information Gathering</h2>
+            <p>Select tools for information gathering:</p>
+            <div class="tool-selector" id="info-tools">
+                ${toolOptions["info-gathering"]
+                  .map(
+                    (tool) => `
+                    <div class="tool-option" data-tool-id="${tool.id}">
+                        <i class="fas ${tool.icon}"></i>
+                        <div class="tool-details">
+                            <div class="tool-name">${tool.name}</div>
+                            <div class="tool-description">${tool.description}</div>
+                        </div>
+                    </div>
+                `
+                  )
+                  .join("")}
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Enter target URL" id="target-url">
+                <button onclick="startScan('info-gathering')">
+                    <i class="fas fa-play"></i> Start Analysis
+                </button>
+            </div>
+            <div class="status-container">
+                <div class="progress">
+                    <div class="progress-bar" id="info-gathering-progress"></div>
+                </div>
+                <div class="results" id="info-gathering-results">Select tools to start analysis...</div>
+            </div>
+        </div>
+    `,
+        "content-discovery": `
+        <div class="card">
+            <h2><i class="fas fa-folder-open"></i> Content Discovery</h2>
+            <p>Select tools for content discovery:</p>
+            <div class="tool-selector" id="content-tools">
+                ${toolOptions["content-discovery"]
+                  .map(
+                    (tool) => `
+                    <div class="tool-option" data-tool-id="${tool.id}">
+                        <i class="fas ${tool.icon}"></i>
+                        <div class="tool-details">
+                            <div class="tool-name">${tool.name}</div>
+                            <div class="tool-description">${tool.description}</div>
+                        </div>
+                    </div>
+                `
+                  )
+                  .join("")}
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Enter target URL" id="target-url">
+                <button onclick="startScan('content-discovery')">
+                    <i class="fas fa-play"></i> Start Discovery
+                </button>
+            </div>
+            <div class="status-container">
+                <div class="progress">
+                    <div class="progress-bar" id="content-discovery-progress"></div>
+                </div>
+                <div class="results" id="content-discovery-results">Select tools to start discovery...</div>
+            </div>
+        </div>
+    `,
+      };
+      // Track selected tools
+      const selectedTools = {
+        "asset-discovery": new Set(),
+        "info-gathering": new Set(),
+        "content-discovery": new Set(),
+      };
+
+      // Show section content with animations
+      function showSection(section) {
+        const content = document.getElementById("section-content");
+
+        // First, update the content
+        content.innerHTML = sections[section];
+
+        // Then animate all elements
+        const card = content.querySelector(".card");
+        const toolOptions = content.querySelectorAll(".tool-option");
+
+        // Reset initial states
+        gsap.set(card, { opacity: 0, x: 40, scale: 0.95 });
+        gsap.set(toolOptions, { opacity: 0, y: 20 });
+
+        // Create timeline for smooth animations
+        const tl = gsap.timeline();
+
+        // Animate card entrance
+        tl.to(card, {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+
+        // Animate tool options with stagger
+        tl.to(
+          toolOptions,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "back.out(1.7)",
+          },
+          "-=0.3"
+        );
+
+        // Update sidebar active state
+        document.querySelectorAll(".nav-item").forEach((item) => {
+          item.classList.remove("active");
+        });
+        const activeItem = document.querySelector(
+          `.nav-item:nth-child(${Object.keys(sections).indexOf(section) + 2})`
+        );
+        activeItem.classList.add("active");
+
+        // Add click handlers for tool selection
+        setupToolSelectionHandlers();
+      }
+
+      // Setup tool selection handlers
+      function setupToolSelectionHandlers() {
+        document.querySelectorAll(".tool-option").forEach((tool) => {
+          tool.addEventListener("click", function () {
+            const toolId = this.dataset.toolId;
+            const sectionId = getCurrentSection();
+
+            this.classList.toggle("selected");
+
+            if (this.classList.contains("selected")) {
+              selectedTools[sectionId].add(toolId);
+            } else {
+              selectedTools[sectionId].delete(toolId);
+            }
+          });
+        });
+      }
+
+      // Get current section
+      function getCurrentSection() {
+        const activeNav = document.querySelector(".nav-item.active");
+        return activeNav.textContent.trim().toLowerCase().replace(" ", "-");
+      }
+
+      async function startScan(type) {
+        if (selectedTools[type].size === 0) {
+          alert("Please select at least one tool to proceed");
+          return;
+        }
+
+        const targetUrl = document.getElementById("target-url")?.value;
+        if (!targetUrl) {
+          alert("Please enter a target URL");
+          return;
+        }
+
+        const progressBar = document.getElementById(`${type}-progress`);
+        const results = document.getElementById(`${type}-results`);
+
+        // Reset progress and results
+        gsap.set(progressBar, { width: "0%" });
+        results.innerHTML = "Starting scan...\n";
+
+        // Animate progress bar start
+        gsap.to(progressBar, {
+          width: "30%",
+          duration: 1,
+          ease: "power1.inOut",
+        });
+
+        try {
+          for (const tool of selectedTools[type]) {
+            // Update status
+            results.innerHTML += `\n🔍 Running ${tool}...\n`;
+
+            try {
+              console.log(
+                `Sending request to scan/${tool} with target: ${targetUrl}`
+              );
+              const response = await fetch(
+                `http://localhost:5000/scan/${tool}`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ target: targetUrl }),
+                }
+              );
+
+              console.log(`Received response:`, response);
+
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+
+              const data = await response.json();
+              console.log(`Parsed data:`, data);
+
+              // Update progress
+              gsap.to(progressBar, {
+                width: "100%",
+                duration: 2,
+                ease: "power1.inOut",
+              });
+
+              // Display results based on tool
+              if (data.status === "success") {
+                if (tool === "nmap") {
+                  results.innerHTML += formatNmapResults(data.results);
+                } else if (tool === "subfinder") {
+                  results.innerHTML += formatSubfinderResults(data.results);
+                } else if (tool === "ffuf") {
+                  results.innerHTML += formatFfufResults(data.results);
+                }
+              } else {
+                results.innerHTML += `\n❌ Error running ${tool}: ${data.error}\n`;
+              }
+            } catch (error) {
+              console.error(`Error with ${tool}:`, error);
+              results.innerHTML += `\n❌ Error running ${tool}: ${error.message}\n`;
+            }
+          }
+        } catch (error) {
+          console.error("Scan error:", error);
+          results.innerHTML += `\n❌ Error: ${error.message}\n`;
+        }
+      }
+
+      // Helper function to format Nmap results
+      function formatNmapResults(results) {
+        let output = "\nNmap Scan Results:\n";
+        results.forEach((host) => {
+          output += `\nHost: ${host.host}\n`;
+          output += `Status: ${host.status}\n`;
+          output += "Open Ports:\n";
+          host.ports.forEach((port) => {
+            output += `- Port ${port.port} (${port.service}): ${port.state}\n`;
+            if (port.version) {
+              output += `  Version: ${port.version}\n`;
+            }
+          });
+        });
+        return output;
+      }
+
+      // Helper function to format Subfinder results
+      function formatSubfinderResults(results) {
+        let output = "\nSubfinder Results:\n";
+        results.forEach((subdomain) => {
+          output += `- ${subdomain}\n`;
+        });
+        return output;
+      }
+      function formatFfufResults(results) {
+        if (!results || results.length === 0) {
+          return `
+            <div class="no-results">
+                <i class="fas fa-info-circle"></i> No files or directories found.
+            </div>
+        `;
+        }
+
+        let output = `
+        <div class="results-header">
+            <i class="fas fa-folder-open"></i> Found ${results.length} Files/Directories:
+        </div>
+        <div class="results-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>URL</th>
+                        <th>Status</th>
+                        <th>Size</th>
+                        <th>Words</th>
+                        <th>Lines</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+
+        results.forEach((result) => {
+          const statusClass =
+            result.status >= 200 && result.status < 300
+              ? "status-success"
+              : result.status >= 300 && result.status < 400
+              ? "status-redirect"
+              : "status-warning";
+
+          output += `
+            <tr>
+                <td class="url-cell">${result.url}</td>
+                <td class="status-cell">
+                    <span class="status-badge ${statusClass}">${result.status}</span>
+                </td>
+                <td class="number-cell">${result.content_length}</td>
+                <td class="number-cell">${result.content_words}</td>
+                <td class="number-cell">${result.content_lines}</td>
+            </tr>
+        `;
+        });
+
+        output += `
+                </tbody>
+            </table>
+        </div>
+    `;
+
+        return output;
+      }
+      function toggleTheme() {
+        const html = document.documentElement;
+        const icon = document.querySelector(".theme-switch i");
+
+        if (html.className === "light") {
+          html.className = "dark";
+          icon.className = "fas fa-sun";
+
+          // Add animation for theme transition
+          gsap.fromTo(
+            ".grid-background",
+            { opacity: 0 },
+            { opacity: 1, duration: 0.3 }
+          );
+        } else {
+          html.className = "light";
+          icon.className = "fas fa-moon";
+
+          // Add animation for theme transition
+          gsap.fromTo(
+            ".grid-background",
+            { opacity: 0 },
+            { opacity: 1, duration: 0.3 }
+          );
+        }
+      }
+
+      // Updated Profile dropdown toggle
+      function toggleProfile(event) {
+        if (event) {
+          event.stopPropagation();
+        }
+        const dropdown = document.getElementById("profileDropdown");
+        dropdown.classList.toggle("active");
+      }
+
+      // Close profile dropdown when clicking outside
+      document.addEventListener("click", (e) => {
+        const profileMenu = document.querySelector(".profile-menu");
+        const dropdown = document.getElementById("profileDropdown");
+        if (!profileMenu.contains(e.target)) {
+          dropdown.classList.remove("active");
+        }
+      });
+
+      // Initialize with asset discovery section and welcome animation
+      document.addEventListener("DOMContentLoaded", () => {
+        showSection("asset-discovery");
+
+        // Animate welcome message
+        const username = document.getElementById("username");
+        gsap.from(username, {
+          y: -20,
+          opacity: 0,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+          delay: 0.2,
+        });
+      });
+    </script>
+  </body>
+</html>

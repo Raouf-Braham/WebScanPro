@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security Testing Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.waves.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+  </head>
+  <body>
+    <div id="vanta-canvas"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <i class="fas fa-shield-alt"></i>
+        SecTest Pro
+      </div>
+      <div class="nav-item active" onclick="showSection('asset-discovery')">
+        <i class="fas fa-search"></i>
+        Asset Discovery
+      </div>
+      <div class="nav-item" onclick="showSection('info-gathering')">
+        <i class="fas fa-info-circle"></i>
+        Information Gathering
+      </div>
+      <div class="nav-item" onclick="showSection('content-discovery')">
+        <i class="fas fa-folder-open"></i>
+        Content Discovery
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="top-bar">
+        <div class="welcome-message">
+          Hello, <span id="username">John Doe</span>! 👋
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center">
+          <button
+            class="theme-switch"
+            onclick="toggleTheme()"
+            title="Toggle theme"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+          <div class="profile-menu">
+            <button class="profile-button" onclick="toggleProfile()">
+              <img src="/api/placeholder/32/32" alt="Profile" />
+              <span>John Doe</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="profile-dropdown" id="profileDropdown">
+              <div class="dropdown-item">
+                <i class="fas fa-user"></i>
+                Profile
+              </div>
+              <div class="dropdown-item">
+                <i class="fas fa-cog"></i>
+                Settings
+              </div>
+              <div class="dropdown-item">
+                <i class="fas fa-history"></i>
+                History
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-item">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="section-content"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
