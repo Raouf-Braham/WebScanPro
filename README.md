@@ -5,7 +5,7 @@
     <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There!+👋;Welcome+To++WebScanPro!;" />
 </h1>
   
-  <img src="static/images/Logo.png" alt="logo" width="300px" height="auto"/>
+  <img src="static/images/WebScanPro_Logo.png" alt="logo" width="300px" height="auto"/>
 
   <h1>Scan Smarter, Stay Safer.</h1>
   
