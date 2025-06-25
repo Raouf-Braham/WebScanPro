@@ -82,7 +82,7 @@ To simplify and automate web security testing, making it accessible to everyone.
 </p>
 <br>
 
-https://github.com/Raouf-Braham/StylishYou/assets/146178733/0ae6c69b-227c-475e-9309-7e8d96b3f3ab
+https://github.com/user-attachments/assets/4a5f5e4a-54f2-4e70-b304-d41a0fe90fa0
 
 
 <!-- TechStack -->
