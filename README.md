@@ -102,41 +102,34 @@ https://github.com/user-attachments/assets/4a5f5e4a-54f2-4e70-b304-d41a0fe90fa0
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://www.php.net/">PHP</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.mysql.com/">MySQL</a></li>
+    <li><a href="https://flask.palletsprojects.com/en/stable/">Flask</a></li>
   </ul>
 </details>
 
 <!-- Features -->
 ### Features
 
-• <b><em>Home Page (index.php) :</b></em>  showcasing collections from various brands with user-friendly navigation and visually appealing elements to highlight flagship products, along with interactive features for easy search facilitation.
+• Automated vulnerability scanning
 
-<br>• <b><em>Shop Page (shop.php) :</b></em> The shop page encompasses all website products, offering filtering options based on various criteria such as gender (women, men, kids), brand name (ZARA, NIKE, H&M), price range, material, and more.
+• Subfinder, Nmap, OWASP ZAP, Gophish integration
 
-<br>• <b><em>Single Product Page (sproduct.php) :</b></em> Single product pages provide comprehensive item descriptions, high-resolution images with zoom functionality for closer examination, streamlined navigation via categorization, presentation of brand collections, and seamless integration of quantity adjustments, add to cart and wishlist features.
+• Full scan history and report access
 
-<br>• <b><em>Cart Page (cart.php) :</b></em> The cart page features a table displaying selected products, showcasing product names, images, sizes, and dynamically integrating quantity adjustments and product removal. Additionally, it presents the subtotal including shipping costs, along with a "Proceed to Checkout" button for further action.
+• Real-time alerts & notifications
 
-<br>• <b><em>Checkout Page (checkout-page.php) :</b></em> The Checkout page displays all desired products for purchase, dynamically calculating prices based on added quantities, and offers secure payment methods such as credit card or PayPal.
+• Configurable test options per user
 
-<br>• <b><em>Administrator Dashboard (Admin_dashbord Folder) :</b></em> Allows for efficient product management including addition, modification, and deletion, alongside providing an overview of orders, transactions, and the capability to manage registered users.
+• Exportable audit-ready reports
 
 <!-- Color Reference -->
 ### Color Reference
 
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Primary Color | ![#088178](https://via.placeholder.com/10/088178?text=+) #088178 |
-| Secondary Color | ![#009688](https://via.placeholder.com/10/009688?text=+) #009688 |
+| Primary Color | ![#00427E](https://via.placeholder.com/10/00427E?text=+) #00427E |
+| Secondary Color | ![#121212](https://via.placeholder.com/10/121212?text=+) #121212 |
 | Accent Color | ![#222](https://via.placeholder.com/10/222?text=+) #222 |
-| Text Color | ![#000000](https://via.placeholder.com/10/000000?text=+) #000000 |
+| Text White | ![#F5F5F5](https://via.placeholder.com/10/F5F5F5?text=+) #F5F5F5 |
 
 
 <!-- Getting Started -->
@@ -148,7 +141,7 @@ https://github.com/user-attachments/assets/4a5f5e4a-54f2-4e70-b304-d41a0fe90fa0
 Clone the project
 
 ```bash
-  git clone https://github.com/Raouf-Braham/StylishYou.git
+  git clone https://github.com/Raouf-Braham/WebScanPro.git
 ```
 
 Go to the project directory
@@ -160,23 +153,35 @@ Go to the project directory
 <!-- Usage -->
 ## Usage
 
-To utilize our website, begin by navigating to the homepage to explore our offerings. From there, browse through the collections, select desired products, and add them to your cart. Finally, proceed to the checkout page to finalize your purchase securely.
+• Launch the app via localhost:5000
+
+• Register or login to access the dashboard
+
+• Start scanning using integrated tools
+
+• View detailed reports in your history tab
+
+• Manage account settings and scan preferences
 
 <!-- Roadmap -->
 ## Roadmap
-The roadmap for this project entails refining the shopping process and enhancing the navigation experience within the fashion domain. 
-To achieve perfection, we must focus on the following key areas:
+🔄 Add AI-powered vulnerability classification
 
-* [x] Responsiveness across all screen sizes
-* [ ] Meticulously testing for and resolving any bugs or issues encountered along the way.
-* [ ] Scalability will be a pivotal focus, ensuring the website can seamlessly accommodate increased traffic and growing demands without compromising performance or user experience.
+📈 Interactive reporting dashboards
 
+📤 Integration with Slack & Jira
+
+🧠 Risk scoring and automated patch recommendations
+
+🌐 Multi-language support
+
+☁️ Cloud scan agent deployment
 
 <!-- Contributing -->
 ## Contributing
 
-<a href="https://github.com/Raouf-Braham/StylishYou/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Raouf-Braham/StylishYou" />
+<a href="https://github.com/Raouf-Braham/WebScanPro/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Raouf-Braham/WebScanPro" />
 </a>
 
 
@@ -188,7 +193,7 @@ See `contributing.md` for ways to get started.
 <!-- Code of Conduct -->
 ### Code of Conduct
 
-Please read the [Code of Conduct](https://github.com/Raouf-Braham/StylishYou/blob/master/CODE_OF_CONDUCT.md)
+Please read the [Code of Conduct](https://github.com/Raouf-Braham/WebScanPro/blob/master/CODE_OF_CONDUCT.md)
 
 <!-- License -->
 ## License
@@ -201,16 +206,12 @@ Distributed under the no License. See LICENSE.txt for more information.
 
 Linkedin - [@Raouf Braham](https://www.linkedin.com/in/raouf-braham-67b365251/) | Email - raouf.brahem@eniso.u-sousse.tn
 
-Project Link: [https://github.com/Raouf-Braham/StylishYou](https://github.com/Raouf-Braham/StylishYou)
+Project Link: [https://github.com/Raouf-Braham/StylishYou](https://github.com/Raouf-Braham/WebScanPro)
 
 
 <!-- Acknowledgments -->
 ## Acknowledgements
 
-Here are some libraries and resources that have been instrumental in enhancing our website :
+• Inspired by tools like Subfinder, ZAP, and Intruder.
 
- - [Swiper.js](https://swiperjs.com/)
- - [Glide.js](https://glidejs.com/)
- - [ScrollReveal.js](https://scrollrevealjs.org/)
- - [Font Awesome](https://fontawesome.com/)
- - [Google Fonts](https://fonts.google.com/)
+• Technologies from the Flask, HTML5, CSS3, and MySQL communities.
