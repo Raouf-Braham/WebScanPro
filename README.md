@@ -72,15 +72,15 @@
 
 <!-- Mission -->
 ### Mission
-StylishYou aims to address the complexity and fragmentation of online shopping for a variety of branded clothing, providing a seamless user experience. We offer a comprehensive range of products including clothing, shoes, accessories, and cosmetics for all genders and ages. Our goal is to ensure a secure and enjoyable shopping experience while showcasing international brand collections attractively. Additionally, we have implemented a user management system with registration and login features, as well as an admin dashboard for managing products and orders.
+To simplify and automate web security testing, making it accessible to everyone. WebScanPro empowers users to identify and mitigate security risks through intuitive dashboards, modular tool integration, and reliable reporting — without requiring deep expertise in cybersecurity.
 
 <!-- Tutorial -->
 ### Tutorial
 
-<p>This concise tutorial demonstrates the process of seamlessly adding and removing products from your cart, progressing to the checkout page, and specifying desired quantities for ordering.</p>
+<p>New to WebScanPro? Here's how to get started: First, sign up / login as a client or admin. Second, launch a Scan via the dashboard using tools like Nmap, Subfinder, or ZAP.
+  Each tool's simulation is built to give users real-time feedback and a hands-on experience.
+</p>
 <br>
-<p>You may access the platform by either creating a personal account or utilizing the provided user credentials:</p>
-<p>Username: user@gmail.com | Password: user2024</p>
 
 https://github.com/Raouf-Braham/StylishYou/assets/146178733/0ae6c69b-227c-475e-9309-7e8d96b3f3ab
 
