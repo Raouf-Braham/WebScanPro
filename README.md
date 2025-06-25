@@ -10,7 +10,7 @@
   <h1>Scan Smarter, Stay Safer.</h1>
   
   <p>
-    Welcome to StylishYou, your ultimate destination showcasing a diverse array of clothing categories from the most popular brands in fashion.
+    Welcome to WebScanPro — your gateway to intelligent, lightning-fast vulnerability detection and total web security control.
   </p>
   
   
