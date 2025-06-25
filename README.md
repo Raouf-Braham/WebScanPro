@@ -5,9 +5,9 @@
     <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There!+👋;Welcome+To++WebScanPro!;" />
 </h1>
   
-  <img src="img/original-logo.png" alt="logo" width="400px" height="auto"/>
+  <img src="static/images/Logo.png" alt="logo" width="400px" height="auto"/>
 
-  <h1>StylishYou : Your Fashion Journey Starts Here</h1>
+  <h1>Scan Smarter, Stay Safer.</h1>
   
   <p>
     Welcome to StylishYou, your ultimate destination showcasing a diverse array of clothing categories from the most popular brands in fashion.
