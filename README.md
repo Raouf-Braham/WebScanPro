@@ -206,7 +206,7 @@ Distributed under the no License. See LICENSE.txt for more information.
 
 Linkedin - [@Raouf Braham](https://www.linkedin.com/in/raouf-braham-67b365251/) | Email - raouf.brahem@eniso.u-sousse.tn
 
-Project Link: [https://github.com/Raouf-Braham/StylishYou](https://github.com/Raouf-Braham/WebScanPro)
+Project Link: [https://github.com/Raouf-Braham/WebScanPro](https://github.com/Raouf-Braham/WebScanPro)
 
 
 <!-- Acknowledgments -->
@@ -214,4 +214,4 @@ Project Link: [https://github.com/Raouf-Braham/StylishYou](https://github.com/Ra
 
 • Inspired by tools like Subfinder, ZAP, and Intruder.
 
-• Technologies from the Flask, HTML5, CSS3, and MySQL communities.
+• Technologies from the Flask, HTML5 and CSS3 communities.
