@@ -185,7 +185,7 @@ Go to the project directory
 </a>
 
 <a href="https://github.com/HoussemEddinChaouach-eniso">
-  <img src="https://github.com/HoussemEddinChaouach-eniso.png" width="70" height="70" style="border-radius:50%;">
+  <img src="https://avatars.githubusercontent.com/HoussemEddinChaouach-eniso?s=70" width="70" height="70" alt="HoussemEddinChaouach-eniso" style="border-radius:50%;">
 </a>
 
 
