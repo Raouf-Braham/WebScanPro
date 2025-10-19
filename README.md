@@ -16,32 +16,32 @@
   
 <!-- Badges -->
 <p>
-  <a href="https://github.com/Raouf-Braham/StylishYou//graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/Raouf-Braham/StylishYou" alt="contributors" />
+  <a href="https://github.com/Raouf-Braham/WebScanPro//graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/Raouf-Braham/WebScanPro" alt="contributors" />
   </a>
   <a href="">
-    <img src="https://img.shields.io/github/last-commit/Raouf-Braham/StylishYou" alt="last update" />
+    <img src="https://img.shields.io/github/last-commit/Raouf-Braham/WebScanPro" alt="last update" />
   </a>
-  <a href="https://github.com/Raouf-Braham/StylishYou/network/members">
-    <img src="https://img.shields.io/github/forks/Raouf-Braham/StylishYou" alt="forks" />
+  <a href="https://github.com/Raouf-Braham/WebScanPro/network/members">
+    <img src="https://img.shields.io/github/forks/Raouf-Braham/WebScanPro" alt="forks" />
   </a>
-  <a href="https://github.com/Raouf-Braham/StylishYou">
-    <img src="https://img.shields.io/github/stars/Raouf-Braham/StylishYou" alt="stars" />
+  <a href="https://github.com/Raouf-Braham/WebScanPro">
+    <img src="https://img.shields.io/github/stars/Raouf-Braham/WebScanPro" alt="stars" />
   </a>
-  <a href="https://github.com/Raouf-Braham/StylishYou/issues/">
-    <img src="https://img.shields.io/github/issues/Raouf-Braham/StylishYou" alt="open issues" />
+  <a href="https://github.com/Raouf-Braham/WebScanPro/issues/">
+    <img src="https://img.shields.io/github/issues/Raouf-Braham/WebScanPro" alt="open issues" />
   </a>
-  <a href="https://github.com/Raouf-Braham/StylishYou/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/Raouf-Braham/StylishYou.svg" alt="license" />
+  <a href="https://github.com/Raouf-Braham/WebScanPro/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/Raouf-Braham/WebScanPro.svg" alt="license" />
   </a>
 </p>
    
 <h4>
-    <a href="https://github.com/Raouf-Braham/StylishYou">Documentation</a>
+    <a href="https://github.com/Raouf-Braham/WebScanPro">Documentation</a>
   <span> · </span>
-    <a href="https://github.com/Raouf-Braham/StylishYou/issues/">Report Bug</a>
+    <a href="https://github.com/Raouf-Braham/WebScanPro/issues/">Report Bug</a>
   <span> · </span>
-    <a href="https://github.com/Raouf-Braham/StylishYou/issues/">Request Feature</a>
+    <a href="https://github.com/Raouf-Braham/WebScanPro/issues/">Request Feature</a>
   </h4>
 </div>
 
@@ -126,10 +126,10 @@ https://github.com/user-attachments/assets/4a5f5e4a-54f2-4e70-b304-d41a0fe90fa0
 
 | Color | Hex |
 | ------ | ---- |
-| Primary Color | <img src="https://via.placeholder.com/15/00427E/00427E.png" width="15" height="15"> `#00427E` |
-| Secondary Color | <img src="https://via.placeholder.com/15/121212/121212.png" width="15" height="15"> `#121212` |
-| Accent Color | <img src="https://via.placeholder.com/15/222222/222222.png" width="15" height="15"> `#222222` |
-| Text White | <img src="https://via.placeholder.com/15/F5F5F5/F5F5F5.png" width="15" height="15"> `#F5F5F5` |
+| Primary Color | <img src="https://placehold.co/15x15/00427E/00427E.png" width="15" height="15"> `#00427E` |
+| Secondary Color | <img src="https://placehold.co/15x15/121212/121212.png" width="15" height="15"> `#121212` |
+| Accent Color | <img src="https://placehold.co/15x15/222222/222222.png" width="15" height="15"> `#222222` |
+| Text White | <img src="https://placehold.co/15x15/F5F5F5/F5F5F5.png" width="15" height="15"> `#F5F5F5` |
 
 
 <!-- Getting Started -->
@@ -204,7 +204,7 @@ Distributed under the no License. See LICENSE.txt for more information.
 <!-- Contact -->
 ## Contact
 
-Linkedin - [@Raouf Braham](https://www.linkedin.com/in/raouf-braham/) | Email - raouf.brahem@eniso.u-sousse.tn
+Linkedin - [@Raouf Braham](https://www.linkedin.com/in/raouf-braham/) [@Houssem Eddin Chaouach](https://www.linkedin.com/in/houssem-eddin-chaouach-2042592a7/) | Email - raouf.brahem@eniso.u-sousse.tn houssemeddine.chaouach@eniso.u-sousse.tn
 
 Project Link: [https://github.com/Raouf-Braham/WebScanPro](https://github.com/Raouf-Braham/WebScanPro)
 
