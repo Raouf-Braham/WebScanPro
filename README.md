@@ -184,7 +184,7 @@ Go to the project directory
   <img src="https://contrib.rocks/image?repo=Raouf-Braham/WebScanPro" />
 </a>
 <a href="https://github.com/HoussemEddinChaouach-eniso">
-  <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/HoussemEddinChaouach-eniso&h=70&w=70&fit=cover&mask=circle&maxage=7d" width="70" height="70" alt="HoussemEddinChaouach-eniso"/>
+  <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/HoussemEddinChaouach-eniso&h=60&w=60&fit=cover&mask=circle&maxage=7d" width="60" height="60" alt="HoussemEddinChaouach-eniso"/>
 </a>
 
 
