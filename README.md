@@ -124,12 +124,12 @@ https://github.com/user-attachments/assets/4a5f5e4a-54f2-4e70-b304-d41a0fe90fa0
 <!-- Color Reference -->
 ### Color Reference
 
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Primary Color | ![#00427E](https://via.placeholder.com/10/00427E?text=+) #00427E |
-| Secondary Color | ![#121212](https://via.placeholder.com/10/121212?text=+) #121212 |
-| Accent Color | ![#222](https://via.placeholder.com/10/222?text=+) #222 |
-| Text White | ![#F5F5F5](https://via.placeholder.com/10/F5F5F5?text=+) #F5F5F5 |
+| Color | Hex |
+| ------ | ---- |
+| Primary Color | <img src="https://via.placeholder.com/15/00427E/00427E.png" width="15" height="15"> `#00427E` |
+| Secondary Color | <img src="https://via.placeholder.com/15/121212/121212.png" width="15" height="15"> `#121212` |
+| Accent Color | <img src="https://via.placeholder.com/15/222222/222222.png" width="15" height="15"> `#222222` |
+| Text White | <img src="https://via.placeholder.com/15/F5F5F5/F5F5F5.png" width="15" height="15"> `#F5F5F5` |
 
 
 <!-- Getting Started -->
@@ -204,7 +204,7 @@ Distributed under the no License. See LICENSE.txt for more information.
 <!-- Contact -->
 ## Contact
 
-Linkedin - [@Raouf Braham](https://www.linkedin.com/in/raouf-braham-67b365251/) | Email - raouf.brahem@eniso.u-sousse.tn
+Linkedin - [@Raouf Braham](https://www.linkedin.com/in/raouf-braham/) | Email - raouf.brahem@eniso.u-sousse.tn
 
 Project Link: [https://github.com/Raouf-Braham/WebScanPro](https://github.com/Raouf-Braham/WebScanPro)
 
